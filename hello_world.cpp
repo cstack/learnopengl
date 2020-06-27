@@ -11,6 +11,7 @@ unsigned int VAOtriforce();
 unsigned int createVertexShader(const char **);
 unsigned int createFragmentShader(const char **);
 unsigned int createShaderProgram(unsigned int, unsigned int);
+void queryAndLogGlInfo();
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -67,6 +68,8 @@ int main()
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
+
+    queryAndLogGlInfo();
 
     int vertexShader = createVertexShader(&vertexShaderSource);
     int orangeShader = createFragmentShader(&fragmentShaderSourceOrange);
@@ -285,4 +288,10 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     // make sure the viewport matches the new window dimensions; note that width and 
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
+}
+
+void queryAndLogGlInfo() {
+  int nrAttributes;
+  glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+  std::cout << "Maximum nr of vertex attributes supported: " << nrAttributes << std::endl;
 }
