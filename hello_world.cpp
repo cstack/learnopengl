@@ -19,6 +19,10 @@ int main() {
   while(!glfwWindowShouldClose(window)) {
     processInput(window);
 
+    // Clear screen with custom color
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // state-setting
+    glClear(GL_COLOR_BUFFER_BIT); // state-using
+
     // We are done rendering to back buffer.
     // Swap with front buffer to update frame
     // instantaneously. The technique is called:
