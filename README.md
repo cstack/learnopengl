@@ -1,3 +1,7 @@
+# About
+
+Based loosely on [Learn OpenGL](https://learnopengl.com/)
+
 # Setup
 
 ## Mac
