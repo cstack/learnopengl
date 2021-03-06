@@ -10,5 +10,8 @@ hello_world.o: hello_world.cpp
 glad.o: glad.c
 	gcc -c -o glad.o glad.c
 
+lint:
+	clang-format -i hello_world.cpp
+
 clean: 
 	rm hello_world *.o
